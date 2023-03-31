@@ -69,14 +69,9 @@ const actualizar = async function(data) {
 const eliminar = async function( id) {
     console. log( "eliminar usuarios ") ;
     try {
-    
-        usrExiste=  await UserModel.findByPk(id);
-        
-        if(usrExiste){
-            usuarioRetorno = await UserModel.update({deleted: true}, {where: {id : id}});
-        }else{
-           return false;
-        }
+        UserModel.destroy({
+            where: { id: id },
+          });
        
         return true;
     } catch (error) {

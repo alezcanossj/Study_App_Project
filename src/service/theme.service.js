@@ -2,7 +2,7 @@ const { sequelize } = require("../connection");
 const { ThemesModel } = require("../model/theme.model");
 
 const listar = async function (textoBuscar) {
-  console.log(textoBuscar);
+  console.log("listar temas ACA");
   try {
     const themes = await sequelize.query(`SELECT * 
         FROM themes 
