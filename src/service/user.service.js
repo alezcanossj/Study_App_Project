@@ -66,12 +66,13 @@ const actualizar = async function(data) {
     
 };
 
-const eliminar = async function( id) {
+const eliminar = async function(id) {
     console. log( "eliminar usuarios ") ;
     try {
-        UserModel.destroy({
-            where: { id: id },
-          });
+        UserModel.update(
+            { deleted: true },
+            { where: { id: id } }
+          );
        
         return true;
     } catch (error) {
