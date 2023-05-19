@@ -56,6 +56,7 @@ const actualizar = async function(data) {
         if(usrExiste){
             usuarioRetorno = await UserModel.update(data, {where: {id : id}});
         }else{
+            data.deleted=0;
             usuarioRetorno = await UserModel.create(data);
         }
        return usuarioRetorno;
@@ -80,6 +81,8 @@ const eliminar = async function(id) {
     }
     
 };
+
+
 
 module.exports = {
     listar, actualizar, eliminar,consultarPorCodigo
